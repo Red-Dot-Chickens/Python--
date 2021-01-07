@@ -1,0 +1,27 @@
+FUN oopify(prefix) -> prefix + "oop"
+
+FUN join(elements, seperator)
+    VAR result = "" 
+    VAR length = LEN(elements)
+
+FOR i = 0 TO length THEN
+    VAR result = result + elements/i
+    IF i != length - 1 THEN VAR result = result + seperator
+END
+
+RETURN result
+END
+FUN map(elements, func)
+    VAR new_elements = []
+    FOR i = 0 TO LEN(elements) THEN
+        APPEND(new_elements, func(elements/i))
+    END
+    RETURN new_elements
+END
+
+PRINT("What is going on here??")
+
+FOR i = 0 TO 5 THEN
+    PRINT(join(map(["p", "p"], oopify), ", "))
+END
+PRINT("BVLREAKFASTT!")
